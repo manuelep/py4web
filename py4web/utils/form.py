@@ -214,8 +214,9 @@ class FileUploadWidget:
 
             control.append(download_div)
 
-            control.append(LABEL("Change: "))
-            control.append(INPUT(_type="file", _id=field_id, _name=field.name))
+        control.append(LABEL("Change: "))
+        control.append(INPUT(_type="file", _id=field_id, _name=field.name))
+        return control
 
 
 class FormStyleFactory:
@@ -764,7 +765,7 @@ class Form(object):
                                             field.name
                                         )
                                     else:
-                                        validated_vars[field.name] = None
+                                        validated_vars[field.name] = value = None
                             elif field.type == "boolean":
                                 validated_vars[field.name] = value is not None
                             else:
